@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeSystem : MonoBehaviour
+public class CubeSystem : MonoBehaviour
 {
     float timer;
     public float timeInterval;
+
+    public GameObject Cube;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class TimeSystem : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= timeInterval)
         {
-            Debug.Log("It's on time");
+            Instantiate(Cube);
             timer = 0;
         }
     }

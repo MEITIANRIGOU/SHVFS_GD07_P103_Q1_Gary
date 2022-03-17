@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeSystem : MonoBehaviour
+public class Cube : MonoBehaviour
 {
     float timer;
+    Rigidbody rb;
     public float timeInterval;
     // Start is called before the first frame update
     void Start()
     {
         timer = 0;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -18,7 +20,7 @@ public class TimeSystem : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= timeInterval)
         {
-            Debug.Log("It's on time");
+            rb.AddForce(Vector3.up * 5);
             timer = 0;
         }
     }
